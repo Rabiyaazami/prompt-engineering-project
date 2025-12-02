@@ -1,0 +1,277 @@
+<!--
+This assignment contains all my prompts and the final combined page.
+
+Master Meta-Prompt (for my recording):
+"You are an expert front-end UI developer and expert prompt engineer. Your job is to create clean, responsive, modern website sections using pure HTML + Tailwind CSS. Follow all the rules I give. These prompts must always generate high-quality UI."
+
+Section-Specific Prompts I used:
+
+1) Navigation Bar Prompt:
+Using the Master Meta-Prompt rules, generate a responsive navigation bar with:
+- Brand name on the left
+- Menu links (Home, Services, About, Contact)
+- Mobile hamburger menu
+- Clean animation
+- Sticky top bar
+Return clean HTML + Tailwind CSS.
+
+2) Hero Section Prompt:
+Using the Master Meta-Prompt rules, generate a hero section with:
+- Big headline
+- Short description text
+- CTA button
+- Optional illustration/image on the right
+- Two-column on desktop, one-column on mobile
+Return clean HTML + Tailwind CSS.
+
+3) Services / Features Section Prompt:
+Using the Master Meta-Prompt rules, generate a section with:
+- Title + short subheading
+- 3 to 6 feature cards
+- Each card has an icon, title, and description
+- Clean spacing, rounded corners, shadow
+Return HTML + Tailwind CSS only.
+
+4) Contact / Lead Form Prompt:
+Using the Master Meta-Prompt rules, generate a contact form with:
+- Name, Email, Message fields
+- Proper labels and focus states
+- Responsive layout
+- Submit button
+Return HTML + Tailwind CSS.
+
+5) Footer Prompt:
+Using the Master Meta-Prompt rules, generate a responsive footer with:
+- Brand name
+- Quick links
+- Social icons (Heroicons)
+- Contact email
+- Copyright
+Return HTML + Tailwind CSS only.
+
+This final HTML file is the combined version of everything:
+- Navigation Bar
+- Hero Section
+- Services Section
+- Contact Form
+- Footer
+
+It also includes Tailwind CDN, small JS for the mobile menu, and comments explaining which section came from which prompt.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pinak Idea Lab — Prompt Engineering Assignment</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Prompt engineering assignment demo: responsive UI with Nav, Hero, Services, Contact, Footer">
+</head>
+<body class="antialiased text-gray-800">
+
+  <!-- NAVIGATION -->
+  <nav class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="#" class="flex items-center gap-3">
+            <div class="bg-indigo-600 text-white rounded-md px-3 py-1 font-semibold">Pinak Idea Lab Private Limited</div>
+            <span class="hidden sm:inline font-medium">Pinak Idea Lab UI Demo</span>
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="#" class="hover:text-indigo-600">Home</a>
+          <a href="#services" class="hover:text-indigo-600">Services</a>
+          <a href="#about" class="hover:text-indigo-600">About</a>
+          <a href="#contact" class="hover:text-indigo-600">Contact</a>
+        </div>
+        <div class="flex items-center md:hidden">
+          <button id="menuBtn" aria-expanded="false" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <!-- Heroicon: menu -->
+            <svg id="menuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="menuClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#" class="block px-3 py-2 rounded-md">Home</a>
+        <a href="#services" class="block px-3 py-2 rounded-md">Services</a>
+        <a href="#about" class="block px-3 py-2 rounded-md">About</a>
+        <a href="#contact" class="block px-3 py-2 rounded-md">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="bg-gradient-to-r from-indigo-50 to-white">
+    <div class="max-w-7xl mx-auto px-4 py-14 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div>
+          <h1 class="text-3xl sm:text-4xl font-bold leading-tight">Build beautiful UI with prompts — fast.</h1>
+          <p class="mt-4 text-gray-600">A demonstration project for prompt engineering and front-end UI generation. Generate consistent, responsive sections using clear, reusable prompts.</p>
+          <div class="mt-6 flex items-center gap-4">
+            <a href="#contact" class="inline-block bg-indigo-600 text-white px-5 py-3 rounded-lg shadow hover:bg-indigo-700">Get Started</a>
+            <a href="#services" class="inline-block bg-white border border-gray-200 px-5 py-3 rounded-lg hover:shadow">Learn More</a>
+          </div>
+          
+        </div>
+        <div class="flex justify-center lg:justify-end">
+          <div class="w-full max-w-md">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="" class="rounded-xl shadow-md w-full"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="text-2xl font-semibold">What this assignment demonstrates</h2>
+        <p class="mt-2 text-gray-600">Prompt-driven UI generation for consistent, responsive design and rapid prototyping.</p>
+      </div>
+      <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="p-6 bg-white rounded-xl shadow hover:shadow-md">
+          <div class="flex items-center gap-4">
+            <div class="p-3 bg-indigo-50 rounded-lg">
+              <!-- Heroicon: sparkles -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold">Reusable Prompts</h3>
+              <p class="text-sm text-gray-600">Meta-prompts and section prompts that generate consistent UI.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="p-6 bg-white rounded-xl shadow hover:shadow-md">
+          <div class="flex items-center gap-4">
+            <div class="p-3 bg-indigo-50 rounded-lg">
+              <!-- Heroicon: chart-bar -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3v18h18" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold">Responsive Design</h3>
+              <p class="text-sm text-gray-600">Mobile-first layouts with Tailwind breakpoints and clean spacing.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="p-6 bg-white rounded-xl shadow hover:shadow-md">
+          <div class="flex items-center gap-4">
+            <div class="p-3 bg-indigo-50 rounded-lg">
+              <!-- Heroicon: code -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold">Fast Prototyping</h3>
+              <p class="text-sm text-gray-600">Turn prompts into working HTML quickly for portfolio demos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-12 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="order-2 lg:order-1">
+          <h3 class="text-xl font-semibold">Get in touch</h3>
+          <p class="mt-2 text-gray-600">Send a message if you want the prompt files, hosting help, or collaboration.</p>
+          <div class="mt-6">
+            <ul class="text-sm text-gray-700">
+              <li><strong>Email:</strong> rabya@example.com</li>
+              <li class="mt-2"><strong>Location:</strong> Bengaluru, India</li>
+              <li class="mt-2"><strong>Open to:</strong> Prompt Engineering, Data Analyst, and Software roles</li>
+            </ul>
+          </div>
+        </div>
+        <form class="order-1 lg:order-2 bg-white p-6 rounded-xl shadow" id="contactForm" onsubmit="return handleSubmit(event)">
+          <div class="grid grid-cols-1 gap-4">
+            <label class="block">
+              <span class="text-sm font-medium">Name</span>
+              <input required name="name" type="text" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="Your name" />
+            </label>
+            <label class="block">
+              <span class="text-sm font-medium">Email</span>
+              <input required name="email" type="email" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="you@example.com" />
+            </label>
+            <label class="block">
+              <span class="text-sm font-medium">Message</span>
+              <textarea required name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="How can I help?"></textarea>
+            </label>
+            <div class="flex items-center justify-end">
+              <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-md">Send Message</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t">
+    <div class="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="bg-indigo-600 text-white rounded-md px-3 py-1 font-semibold">Pinak Idea Lab Private Limited</div>
+        <div class="text-sm text-gray-600">Pinak Idea Lab UI Demo</div>
+      </div>
+      <div class="text-sm text-gray-600">© 2025 Rabiya Azami — All rights reserved</div>
+      <div class="flex items-center gap-3">
+        <a href="#" aria-label="twitter" class="hover:text-indigo-600">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M..."/></svg>
+        </a>
+        <a href="#" aria-label="linkedin" class="hover:text-indigo-600">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M..."/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuOpen = document.getElementById('menuOpen');
+    const menuClose = document.getElementById('menuClose');
+    menuBtn.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('hidden');
+      menuOpen.classList.toggle('hidden');
+      menuClose.classList.toggle('hidden');
+    });
+
+    // Basic form handler (no backend) — shows a success toast
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.innerText = 'Sending...';
+      setTimeout(() => {
+        alert('Message sent! (demo)');
+        btn.disabled = false;
+        btn.innerText = 'Send Message';
+        e.target.reset();
+      }, 900);
+      return false;
+    }
+  </script>
+</body>
+</html>
